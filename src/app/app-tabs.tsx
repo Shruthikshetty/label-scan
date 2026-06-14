@@ -1,10 +1,10 @@
 import { NativeTabs } from "expo-router/unstable-native-tabs";
 
 // main tabs for the app
-export const AppTabs = () => {
+const AppTabs = () => {
   return (
     <NativeTabs>
-      <NativeTabs.Trigger name="index">
+      <NativeTabs.Trigger name="home">
         <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
           src={require("@/assets/images/tabIcons/home.png")}
@@ -22,3 +22,5 @@ export const AppTabs = () => {
     </NativeTabs>
   );
 };
+
+export default AppTabs;
