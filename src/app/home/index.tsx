@@ -2,6 +2,7 @@ import { Box } from "@/components/ui/box";
 import { Text } from "@/components/ui/text";
 import Ionicons from "@react-native-vector-icons/ionicons";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { COLOR_INDICATORS } from "../constants/screen.constants";
 
 export default function Index() {
   return (
@@ -39,6 +40,27 @@ export default function Index() {
       </Box>
 
       {/* scan component goes here  */}
+
+      {/* color indicators  */}
+      <Box className="flex w-full flex-row gap-5 p-4 items-center">
+        {COLOR_INDICATORS.map((item, index) => (
+          <Box
+            className="flex flex-1 flex-col gap-1 p-4 items-center border border-gray-300 rounded-3xl"
+            key={index}
+          >
+            <Box className={`p-2 rounded-full ${item.color}`} />
+            {/*  text */}
+            <Text
+              size="md"
+              className="color-typography-950 text-center w-full"
+              bold
+            >
+              {item.label}
+            </Text>
+            {/*  color dot */}
+          </Box>
+        ))}
+      </Box>
     </SafeAreaView>
   );
 }
