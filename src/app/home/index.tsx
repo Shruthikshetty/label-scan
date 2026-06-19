@@ -3,6 +3,7 @@ import { Text } from "@/components/ui/text";
 import Ionicons from "@react-native-vector-icons/ionicons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { COLOR_INDICATORS } from "../constants/screen.constants";
+import ImageUpload from "../components/image-upload";
 
 export default function Index() {
   return (
@@ -40,6 +41,7 @@ export default function Index() {
       </Box>
 
       {/* scan component goes here  */}
+      <ImageUpload />
 
       {/* color indicators  */}
       <Box className="flex w-full flex-row gap-5 p-4 items-center">
