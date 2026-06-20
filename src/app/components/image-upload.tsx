@@ -11,7 +11,7 @@ const ImageUpload = () => {
   return (
     <Box className="w-full items-center flex-col justify-center border-2 border-dashed border-gray-400 rounded-2xl py-5 px-10 gap-3">
       {/*  icon */}
-      <Box className="rounded-xl bg-yellow-400 p-3">
+      <Box className="rounded-xl bg-cream p-3">
         <Ionicons name={"camera-outline"} size={35} color={"#15803d"} />
       </Box>
       <Text size="md" className="color-typography-600 text-center px-10">

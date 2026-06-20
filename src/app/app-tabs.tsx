@@ -22,7 +22,7 @@ const AppTabs = () => {
         <NativeTabs.Trigger.Icon sf="camera.viewfinder" md="photo_camera" />
       </NativeTabs.Trigger>
 
-      <NativeTabs.Trigger name="explore">
+      <NativeTabs.Trigger name="history">
         <NativeTabs.Trigger.Label>History</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon sf="clock.fill" md="history" />
       </NativeTabs.Trigger>
