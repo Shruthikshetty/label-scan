@@ -1,12 +1,13 @@
 import { Box } from "@/components/ui/box";
 import { Text } from "@/components/ui/text";
 import VerdictCard from "../../components/verdict-card";
-import { useLocalSearchParams, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Heading } from "@/components/ui/heading";
 import { MACRO_COLOR_MAPPING } from "../../constants/screen.constants";
 import { Button, ButtonText } from "@/components/ui/button";
 import Ionicons from "@react-native-vector-icons/ionicons";
+import HackCard from "../../components/hack-card";
 
 //mock data
 const aiResult = {
@@ -27,6 +28,8 @@ const aiResult = {
       status: "Good",
     },
   ],
+
+  hack: "If this sauce is the only available option, use it very sparingly to minimize intake of high fructose corn syrup and preservatives, and try to balance with unsalted, whole foods.",
 };
 
 /**
@@ -38,7 +41,7 @@ const ScanDetails = () => {
   // initialize router
   const router = useRouter();
   // get the id from route
-  const { id } = useLocalSearchParams();
+  // const { id } = useLocalSearchParams();
 
   return (
     <SafeAreaView className="flex-1 p-5 flex gap-5">
@@ -94,6 +97,7 @@ const ScanDetails = () => {
       {/* ingredients table */}
 
       {/* hack card */}
+      <HackCard description={aiResult.hack} />
     </SafeAreaView>
   );
 };
