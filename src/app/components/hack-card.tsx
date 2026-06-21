@@ -10,7 +10,7 @@ const HackCard = ({ description }: { description: string }) => {
       <Box className="flex flex-row items-center gap-2">
         <Ionicons name="bulb-outline" size={20} color={"green"} />
         <Heading className="text-xl text-typography-950" bold>
-          Dietary hack
+          DIETARY HACK
         </Heading>
       </Box>
       <Text className="color-typography-800">{description}</Text>

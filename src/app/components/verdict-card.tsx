@@ -10,7 +10,7 @@ const VerdictCard = ({ verdict }: { verdict: string }) => {
       <Box className="flex flex-row items-center gap-2">
         <Ionicons name="sparkles-outline" size={20} color={"green"} />
         <Heading className="text-xl text-typography-950" bold>
-          AI Verdict
+          AI VERDICT
         </Heading>
       </Box>
       <Text className="color-typography-800">{verdict}</Text>

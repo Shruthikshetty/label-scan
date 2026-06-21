@@ -13,6 +13,12 @@ export const COLOR_INDICATORS = [
   },
 ];
 
+export const RISK_COLOR_MAPPING: Record<string, string> = {
+  safe: "success-500",
+  processed: "warning-500",
+  "red flag": "error-500",
+};
+
 export const MACRO_COLOR_MAPPING: Record<string, string> = {
   high: "text-red-500",
   medium: "text-yellow-500",
