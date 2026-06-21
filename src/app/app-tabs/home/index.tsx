@@ -2,8 +2,8 @@ import { Box } from "@/components/ui/box";
 import { Text } from "@/components/ui/text";
 import Ionicons from "@react-native-vector-icons/ionicons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { COLOR_INDICATORS } from "../constants/screen.constants";
-import ImageUpload from "../components/image-upload";
+import { COLOR_INDICATORS } from "../../constants/screen.constants";
+import ImageUpload from "../../components/image-upload";
 
 export default function Index() {
   return (
@@ -28,7 +28,7 @@ export default function Index() {
       <Box className="flex gap-5">
         <Box>
           <Text className="text-center color-typography-950" size="4xl" bold>
-            What's actually inside
+            What&apos;s actually inside
           </Text>
           <Text className="text-center text-green-700" size="4xl" bold>
             that packet?
