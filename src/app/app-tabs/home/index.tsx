@@ -52,16 +52,16 @@ export default function Index() {
       <ImageUpload handleUpload={handleUpload} />
 
       {/* color indicators  */}
-      <Box className="flex w-full flex-row gap-5 p-4 items-center">
+      <Box className="flex w-full flex-row gap-3 p-3 items-center">
         {COLOR_INDICATORS.map((item, index) => (
           <Box
-            className="flex flex-1 flex-col gap-1 p-4 items-center border border-gray-300 rounded-3xl"
+            className="flex flex-1 flex-col gap-1 p-4 items-center border border-gray-300 rounded-3xl h-full"
             key={index}
           >
             <Box className={`p-2 rounded-full ${item.color}`} />
             {/*  text */}
             <Text
-              size="md"
+              size="sm"
               className="color-typography-950 text-center w-full"
               bold
             >
