@@ -4,8 +4,16 @@ import Ionicons from "@react-native-vector-icons/ionicons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { COLOR_INDICATORS } from "../../constants/screen.constants";
 import ImageUpload from "../../components/image-upload";
+import { useRouter } from "expo-router";
 
 export default function Index() {
+  const router = useRouter();
+
+  // @TODO temp navigate to details
+  const handleUpload = () => {
+    router.push("/details/1");
+  };
+
   return (
     <SafeAreaView className="flex-1 p-5 flex gap-5">
       {/* header */}
@@ -41,7 +49,7 @@ export default function Index() {
       </Box>
 
       {/* scan component goes here  */}
-      <ImageUpload />
+      <ImageUpload handleUpload={handleUpload} />
 
       {/* color indicators  */}
       <Box className="flex w-full flex-row gap-5 p-4 items-center">

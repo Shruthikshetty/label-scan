@@ -1,5 +1,5 @@
 import { Box } from "@/components/ui/box";
-import { Button, ButtonIcon, ButtonText } from "@/components/ui/button";
+import { Button, ButtonText } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
 import Ionicons from "@react-native-vector-icons/ionicons";
 
@@ -7,7 +7,7 @@ import Ionicons from "@react-native-vector-icons/ionicons";
  * component renders a image upload or open camera option
  * @ todo in progress
  */
-const ImageUpload = () => {
+const ImageUpload = ({ handleUpload }: { handleUpload: () => void }) => {
   return (
     <Box className="w-full items-center flex-col justify-center border-2 border-dashed border-gray-400 rounded-2xl py-5 px-10 gap-3">
       {/*  icon */}
@@ -30,6 +30,7 @@ const ImageUpload = () => {
         action="primary"
         variant="outline"
         className="w-full rounded-full border-0 active:opacity-50"
+        onPress={handleUpload}
       >
         <Ionicons name="image" size={24} color="black" />
         <ButtonText>or upload from gallery</ButtonText>
