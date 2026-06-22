@@ -4,7 +4,7 @@ import { Heading } from "@/components/ui/heading";
 import { Text } from "@/components/ui/text";
 import { RISK_COLOR_MAPPING } from "../constants/screen.constants";
 import { useState, Fragment } from "react";
-import { Pressable, TouchableOpacity } from "react-native";
+import { Pressable } from "react-native";
 
 export type Ingredient = {
   name: string;

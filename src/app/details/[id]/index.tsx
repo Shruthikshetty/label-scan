@@ -12,6 +12,9 @@ import IngredientsBreakdownList, {
   Ingredient,
 } from "../../components/ingredients-breakdown-list";
 import { ScrollView } from "react-native";
+import IngredientsTable, {
+  type Per100g,
+} from "../../components/ingredients-table";
 
 //mock data
 const aiResult = {
@@ -145,6 +148,49 @@ const aiResult = {
       riskLevel: "processed",
     },
   ],
+
+  per100g: [
+    {
+      name: "Calories",
+      analyzed: 350,
+      unit: "kcal",
+    },
+    {
+      name: "Carbohydrates",
+      analyzed: 40,
+      unit: "g",
+    },
+    {
+      name: "Sugars",
+      analyzed: 10,
+      unit: "g",
+    },
+    {
+      name: "Protein",
+      analyzed: 5,
+      unit: "g",
+    },
+    {
+      name: "Fat",
+      analyzed: 15,
+      unit: "g",
+    },
+    {
+      name: "Saturated Fat",
+      analyzed: 5,
+      unit: "g",
+    },
+    {
+      name: "Salt",
+      analyzed: 1,
+      unit: "g",
+    },
+    {
+      name: "Fiber",
+      analyzed: 5,
+      unit: "g",
+    },
+  ],
 };
 
 /**
@@ -215,6 +261,10 @@ const ScanDetails = () => {
           />
 
           {/* ingredients table */}
+          <IngredientsTable
+            title="Per 100g"
+            data={aiResult?.per100g as Per100g[]}
+          />
 
           {/* hack card */}
           <HackCard description={aiResult.hack} />
