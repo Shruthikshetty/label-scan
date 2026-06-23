@@ -3,6 +3,7 @@ import { Box } from "@/components/ui/box";
 import { Text } from "@/components/ui/text";
 import { COLOR_INDICATORS } from "@/src/constants/screen.constants";
 import { AnalyzeProduct } from "@/src/utils/generate-ai-alalysis";
+import { addScan } from "@/src/utils/scans-db.utils";
 import Ionicons from "@react-native-vector-icons/ionicons";
 import { useRouter } from "expo-router";
 import { useState } from "react";
@@ -18,6 +19,22 @@ export default function Index() {
     try {
       setLoading(true);
       const result = await AnalyzeProduct(dataUrl);
+
+      // Save scan to database
+      await addScan({
+        productName: result.productName,
+        totalScore: result.totalScore,
+        finalStatus: result.finalStatus,
+        verdict: result.verdict,
+        numOfIngredientsAudited: result.numOfIngredientsAudited,
+        totalRedFlags: result.totalRedFlags,
+        hack: result.hack,
+        ingredients: result.ingredients,
+        macros: result.macros,
+        per100g: result.per100g,
+        createdAt: Date.now(),
+      });
+
       // navigate to details
       router.push({
         pathname: "/details",

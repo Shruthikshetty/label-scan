@@ -1,21 +1,25 @@
-// get badge color based on score
-export const getBadgeColorBaPerScore = (score: number) => {
-  if (score >= 8) {
-    return "success-500";
+// get the score tier based on score
+export const getScoreTier = (
+  score: number,
+): "success" | "warning" | "error" => {
+  if (score >= 7) {
+    return "success";
   } else if (score >= 4) {
-    return "warning-500";
+    return "warning";
   } else {
-    return "error-500";
+    return "error";
   }
 };
 
+// get badge color token based on score (e.g. "success-500")
+export const getBadgeColorPerScore = (score: number) =>
+  `${getScoreTier(score)}-500`;
+
 // get HEX color based on score
-export const getHexColorPerScore = (score: number) => {
-  if (score >= 8) {
-    return "#348352"; // success-500
-  } else if (score >= 4) {
-    return "#E77828"; // warning-500
-  } else {
-    return "#E63535"; // error-500
-  }
+const HEX_MAP: Record<string, string> = {
+  success: "#348352",
+  warning: "#E77828",
+  error: "#E63535",
 };
+export const getHexColorPerScore = (score: number) =>
+  HEX_MAP[getScoreTier(score)];

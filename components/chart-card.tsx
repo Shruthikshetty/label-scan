@@ -1,7 +1,7 @@
 import { Badge, BadgeText } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import {
-  getBadgeColorBaPerScore,
+  getBadgeColorPerScore,
   getHexColorPerScore,
 } from "@/src/utils/color-utils";
 import Ionicons from "@react-native-vector-icons/ionicons";
@@ -27,8 +27,8 @@ const ChartCard = ({
   totalRedFlags?: number;
 }) => {
   // Determine badge background color based on status
-  let badgeBg = `bg-${getBadgeColorBaPerScore(totalScore)}`;
-  const textColor = `text-${getBadgeColorBaPerScore(totalScore)}`;
+  let badgeBg = `bg-${getBadgeColorPerScore(totalScore)}`;
+  const textColor = `text-${getBadgeColorPerScore(totalScore)}`;
   const scoreColor = getHexColorPerScore(totalScore);
 
   return (
