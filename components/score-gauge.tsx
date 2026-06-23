@@ -1,6 +1,6 @@
-import { View, Text } from "react-native";
-import { PolarChart, Pie } from "victory-native";
-
+import { Text } from "@/components/ui/text";
+import { View } from "react-native";
+import { Pie, PolarChart } from "victory-native";
 interface ScoreGaugeProps {
   score: number;
   maxScore?: number;
@@ -9,53 +9,50 @@ interface ScoreGaugeProps {
   progressColor?: string;
 }
 
-/**
- * Circular donut gauge built with victory-native (Skia-backed).
- * Renders two pie slices: filled progress + gray remainder.
- */
 const ScoreGauge = ({
   score,
   maxScore = 10,
   size = 140,
-  trackColor = "#E8E8E8",
+  trackColor = "#F2EFEA",
   progressColor = "#DC2626",
 }: ScoreGaugeProps) => {
   const progress = Math.min(Math.max(score / maxScore, 0), 1);
 
+  // build the data
   const data = [
     { label: "score", value: progress * 100, color: progressColor },
     { label: "remainder", value: (1 - progress) * 100, color: trackColor },
   ];
-
-  const innerRadius = size * 0.3;
 
   return (
     <View
       style={{
         width: size,
         height: size,
-        alignItems: "center",
-        justifyContent: "center",
       }}
+      className="relative"
     >
       <PolarChart
         data={data}
-        labelKey="label"
-        valueKey="value"
-        colorKey="color"
-        width={size}
-        height={size}
+        labelKey={"label"}
+        valueKey={"value"}
+        colorKey={"color"}
+        containerStyle={{ width: size, height: size }}
       >
-        <Pie.Chart innerRadius={innerRadius} />
+        <Pie.Chart innerRadius="80%" startAngle={270} size={size} />
       </PolarChart>
 
-      {/* Score text centered over the donut */}
+      {/* Centered Score Text */}
       <View
-        style={{ position: "absolute", alignItems: "center" }}
+        className="absolute inset-0 flex items-center justify-center"
         pointerEvents="none"
       >
-        <Text className="text-5xl font-bold text-typography-900">{score}</Text>
-        <Text className="text-xs text-typography-400">/ {maxScore}</Text>
+        <Text size="3xl" bold className="color-typography-950">
+          {score}
+        </Text>
+        <Text size="md" className="color-typography-600">
+          / {maxScore}
+        </Text>
       </View>
     </View>
   );

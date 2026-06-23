@@ -1,21 +1,19 @@
-import { Box } from "@/components/ui/box";
-import { Text } from "@/components/ui/text";
-import VerdictCard from "@/components/verdict-card";
-import { useRouter } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Heading } from "@/components/ui/heading";
-import { MACRO_COLOR_MAPPING } from "@/constants/screen.constants";
-import { Button, ButtonText } from "@/components/ui/button";
-import Ionicons from "@react-native-vector-icons/ionicons";
+import ChartCard from "@/components/chart-card";
 import HackCard from "@/components/hack-card";
 import IngredientsBreakdownList, {
   Ingredient,
 } from "@/components/ingredients-breakdown-list";
+import IngredientsTable, { type Per100g } from "@/components/ingredients-table";
+import { Box } from "@/components/ui/box";
+import { Button, ButtonText } from "@/components/ui/button";
+import { Heading } from "@/components/ui/heading";
+import { Text } from "@/components/ui/text";
+import VerdictCard from "@/components/verdict-card";
+import { MACRO_COLOR_MAPPING } from "@/src/constants/screen.constants";
+import Ionicons from "@react-native-vector-icons/ionicons";
+import { useRouter } from "expo-router";
 import { ScrollView } from "react-native";
-import IngredientsTable, {
-  type Per100g,
-} from "@/components/ingredients-table";
-import ChartCard from "@/components/chart-card";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 //mock data
 const aiResult = {
@@ -232,10 +230,11 @@ const ScanDetails = () => {
 
           {/* chart card */}
           <ChartCard
-            status={"wdwd"}
             finalStatus={aiResult.finalStatus}
             productName={aiResult.productName}
             totalScore={aiResult.totalScore}
+            numOfIngredientsAudited={aiResult.numOfIngredientsAudited}
+            totalRedFlags={aiResult.totalRedFlags}
           />
 
           {/* verdict card */}

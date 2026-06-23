@@ -2,7 +2,7 @@ import { BadgeText, Badge } from "@/components/ui/badge";
 import { Box } from "@/components/ui/box";
 import { Heading } from "@/components/ui/heading";
 import { Text } from "@/components/ui/text";
-import { RISK_COLOR_MAPPING } from "@/constants/screen.constants";
+import { RISK_COLOR_MAPPING } from "@/src/constants/screen.constants";
 import { useState, Fragment } from "react";
 import { Pressable } from "react-native";
 
