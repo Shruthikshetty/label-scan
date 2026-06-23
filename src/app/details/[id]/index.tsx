@@ -1,23 +1,30 @@
 import { Box } from "@/components/ui/box";
 import { Text } from "@/components/ui/text";
-import VerdictCard from "../../components/verdict-card";
+import VerdictCard from "@/components/verdict-card";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Heading } from "@/components/ui/heading";
-import { MACRO_COLOR_MAPPING } from "../../constants/screen.constants";
+import { MACRO_COLOR_MAPPING } from "@/constants/screen.constants";
 import { Button, ButtonText } from "@/components/ui/button";
 import Ionicons from "@react-native-vector-icons/ionicons";
-import HackCard from "../../components/hack-card";
+import HackCard from "@/components/hack-card";
 import IngredientsBreakdownList, {
   Ingredient,
-} from "../../components/ingredients-breakdown-list";
+} from "@/components/ingredients-breakdown-list";
 import { ScrollView } from "react-native";
 import IngredientsTable, {
   type Per100g,
-} from "../../components/ingredients-table";
+} from "@/components/ingredients-table";
+import ChartCard from "@/components/chart-card";
 
 //mock data
 const aiResult = {
+  productName: "Tomato Sauce",
+  totalScore: 7,
+  numOfIngredientsAudited: 8,
+  totalRedFlags: 3,
+  finalStatus: "Avoid",
+
   verdict:
     "This product contains a high amount of added sugar, primarily from High Fructose Corn Syrup, and includes artificial preservatives. The sodium content is also quite high for a small serving size, placing it on the lower end of the health spectrum.",
 
@@ -224,6 +231,12 @@ const ScanDetails = () => {
           </Box>
 
           {/* chart card */}
+          <ChartCard
+            status={"wdwd"}
+            finalStatus={aiResult.finalStatus}
+            productName={aiResult.productName}
+            totalScore={aiResult.totalScore}
+          />
 
           {/* verdict card */}
           <VerdictCard verdict={aiResult.verdict} />

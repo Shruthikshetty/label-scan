@@ -1,6 +1,6 @@
 import { Text } from "@/components/ui/text";
 import { SafeAreaView } from "react-native-safe-area-context";
-import NoHistoryCard from "../../components/no-history-card";
+import NoHistoryCard from "@/components/no-history-card";
 import { Box } from "@/components/ui/box";
 
 const History = () => {

@@ -117,6 +117,7 @@ const TableHead = React.forwardRef<
   if (useRNView) {
     return (
       <View
+        // @ts-ignore
         ref={ref}
         className={tableHeadStyle({ class: className })}
         {...props}
@@ -125,6 +126,7 @@ const TableHead = React.forwardRef<
   } else {
     return (
       <Text
+        // @ts-ignore
         ref={ref}
         className={tableHeadStyle({ class: className })}
         {...props}
@@ -160,6 +162,7 @@ const TableData = React.forwardRef<
   if (useRNView) {
     return (
       <View
+        // @ts-ignore
         ref={ref}
         className={tableDataStyle({ class: className })}
         {...props}
@@ -168,6 +171,7 @@ const TableData = React.forwardRef<
   } else {
     return (
       <Text
+        // @ts-ignore
         ref={ref}
         className={tableDataStyle({ class: className })}
         {...props}

@@ -4,16 +4,9 @@
     "strict": true,
     "jsxImportSource": "nativewind",
     "paths": {
-      "@/*": [
-        "./src/*",
-        "./*"
-      ],
-      "@/assets/*": [
-        "./assets/*"
-      ],
-      "tailwind.config": [
-        "./tailwind.config.js"
-      ]
+      "@/*": ["./*", "./src/*"],
+      "@/assets/*": ["./assets/*"],
+      "tailwind.config": ["./tailwind.config.js"]
     }
   },
   "include": [

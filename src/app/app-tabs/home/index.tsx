@@ -2,8 +2,8 @@ import { Box } from "@/components/ui/box";
 import { Text } from "@/components/ui/text";
 import Ionicons from "@react-native-vector-icons/ionicons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { COLOR_INDICATORS } from "../../constants/screen.constants";
-import ImageUpload from "../../components/image-upload";
+import { COLOR_INDICATORS } from "@/constants/screen.constants";
+import ImageUpload from "@/components/image-upload";
 import { useRouter } from "expo-router";
 
 export default function Index() {
