@@ -1,56 +1,49 @@
-# Welcome to your Expo app 👋
+# LabelScan 📸
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+LabelScan is an AI-first deep food label audit mobile application built with Expo and React Native. Simply snap a picture of any food product packaging, and the app will audit the ingredients, identify red flags, assess macros, and provide a health score out of 10.
 
-## Get started
+## Features
 
-1. Install dependencies
+- 📸 **AI Label Scanner:** Scan food packaging labels via camera or gallery upload.
+- 🤖 **Deep Ingredient Audit:** Analyzes every single ingredient, classifying them (safe, processed, risky) and highlighting potential hazards.
+- 📊 **Dynamic Scoring:** Scores products from 0 to 10 with score-based tier indicators:
+  - 🟢 **Safe** (Score ≥ 7.0)
+  - 🟡 **Caution** (Score 4.0 - 6.9)
+  - 🔴 **Avoid** (Score < 4.0)
+- 💾 **Scan History:** Saves all scanned products locally for offline access using SQLite.
+- 📈 **Weekly & Monthly Insights:** Interactive charts showing your scanning history trends.
 
-   ```bash
-   npm install
-   ```
+## Tech Stack
 
-2. Start the app
+- **Framework:** Expo (v56) & React Native
+- **Navigation:** Expo Router (File-based routing)
+- **Styling:** NativeWind (Tailwind CSS v4) & Gluestack UI
+- **Database:** Drizzle ORM + Expo SQLite
+- **Charts:** Victory Native
+- **AI Core:** Vercel AI SDK integration
 
-   ```bash
-   npx expo start
-   ```
+## Getting Started
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### 1. Install Dependencies
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Set Up Environment Variables
 
-### Other setup steps
+Create a `.env` file in the root directory and add your API key:
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+```env
+EXPO_PUBLIC_AI_GATEWAY_API_KEY=your_api_key_here
+```
 
-## Learn more
+### 3. Run the App
 
-To learn more about developing your project with Expo, look at the following resources:
+Start the Expo development server:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+npx expo start
+```
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Press **a** to run on Android emulator, **i** to run on iOS simulator, or scan the QR code with the Expo Go app.
