@@ -1,17 +1,37 @@
+import ImageUpload from "@/components/image-upload";
 import { Box } from "@/components/ui/box";
 import { Text } from "@/components/ui/text";
-import Ionicons from "@react-native-vector-icons/ionicons";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { COLOR_INDICATORS } from "@/src/constants/screen.constants";
-import ImageUpload from "@/components/image-upload";
+import { AnalyzeProduct } from "@/src/utils/generate-ai-alalysis";
+import Ionicons from "@react-native-vector-icons/ionicons";
 import { useRouter } from "expo-router";
+import { useState } from "react";
+import { Alert } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  // @TODO temp navigate to details
-  const handleUpload = () => {
-    router.push("/details/1");
+  // handle image upload
+  const handleUpload = async (dataUrl: string) => {
+    try {
+      setLoading(true);
+      const result = await AnalyzeProduct(dataUrl);
+      // navigate to details
+      router.push({
+        pathname: "/details",
+        params: {
+          result: JSON.stringify(result),
+        },
+      });
+    } catch (error: any) {
+      console.log(error);
+      // @TODO dont use native model  use custom styled model
+      Alert.alert("Error", error?.message ?? "failed to analyze image");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -49,7 +69,10 @@ export default function Index() {
       </Box>
 
       {/* scan component goes here  */}
-      <ImageUpload handleUpload={handleUpload} />
+      <ImageUpload
+        handleUpload={(data: string) => handleUpload(data)}
+        loading={loading}
+      />
 
       {/* color indicators  */}
       <Box className="flex w-full flex-row gap-3 p-3 items-center">

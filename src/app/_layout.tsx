@@ -15,7 +15,7 @@ export default function RootLayout() {
         initialRouteName="app-tabs"
       >
         <Stack.Screen name="app-tabs" />
-        <Stack.Screen name="details/[id]" />
+        <Stack.Screen name="details" />
       </Stack>
     </GluestackUIProvider>
   );
