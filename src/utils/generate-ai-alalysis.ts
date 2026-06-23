@@ -15,14 +15,23 @@ const SYSTEM_PROMPT =
   "\n" +
   "When auditing a valid food label, follow these rules:\n" +
   "- productName: Identify the product's official or descriptive name.\n" +
-  "- totalScore: Assign a health score from 0 to 10 (0 is extremely healthy/whole food, 10 is highly processed and unhealthiest).\n" +
-  "- finalStatus: Assign 'Avoid' for scores 7-10, 'Caution' for scores 4-6, and 'Safe' for scores 0-3.\n" +
+  "- totalScore: Assign a health score from 0.0 to 10.0 (10.0 is the healthiest/pure whole food, 0.0 is highly processed and unhealthiest).\n" +
+  "  Scoring methodology:\n" +
+  "  * Start at 10.0 (pure whole food).\n" +
+  "  * Subtract points based on the processing level and harmfulness of the ingredients.\n" +
+  "  * Aggressively drop the score BELOW 5.0 if ANY ingredient is a 'red flag' (e.g. hydrogenated/partially-hydrogenated fats, chemical preservatives banned in strict markets like the EU, or known harmful additives).\n" +
+  "  * Penalize 'health-washing' (e.g., sugar split into multiple names like sucrose, corn syrup, maltodextrin).\n" +
+  "  * Factor in the % of the main whole-food ingredient: if a product is mainly a whole food (e.g. 90% peanuts), cushion the score; if it is pure refined flour + oil with no whole-food value, drop the score to 1.0 - 2.0.\n" +
+  "- finalStatus: Assign 'Safe' for scores 8.0 - 10.0, 'Caution' for scores 4.0 - 7.0, and 'Avoid' for scores 0.0 - 3.0.\n" +
   "- numOfIngredientsAudited: Count of ingredients listed and audited.\n" +
   "- totalRedFlags: Count of ingredients classified with 'red flag' riskLevel.\n" +
-  "- verdict: A professional, clear health verdict explanation.\n" +
-  "- macros: List key evaluated macros (e.g. Sodium, Sugar, Sat fat) with status ('High', 'Medium', 'Good').\n" +
-  "- hack: Give a practical food hack or tip for eating it healthily or a better alternative.\n" +
-  "- ingredients: Audit each ingredient including its health impact and categorise riskLevel as 'safe', 'processed', or 'red flag'.\n" +
+  "- verdict: Write a concise 2-sentence plain-English verdict explaining the score.\n" +
+  "- macros: List key evaluated macros (e.g. Sodium, Sugar, Sat fat) with status ('High', 'Medium', 'Good'). Evaluate macros holistically: check sodium, sugar density, and saturated fat ratio.\n" +
+  "- hack: Write a realistic dietary hack/recovery tip if a user must eat this in a remote location with no alternative.\n" +
+  "- ingredients: Audit each ingredient individually and categorize its riskLevel into one of three buckets:\n" +
+  "  * 'safe': whole foods, natural spices, harmless binders (water, guar gum, etc.).\n" +
+  "  * 'processed': refined flours, vegetable oils, added sugars, high sodium, common emulsifiers.\n" +
+  "  * 'red flag': hydrogenated/partially-hydrogenated fats, chemical preservatives banned in strict markets (like EU), known harmful additives.\n" +
   "- per100g: Extract nutritional table values per 100g.";
 
 export const ProductAnalysisSchema = z.object({
