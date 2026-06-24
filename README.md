@@ -13,6 +13,10 @@ LabelScan is an AI-first deep food label audit mobile application built with Exp
 - 💾 **Scan History:** Saves all scanned products locally for offline access using SQLite.
 - 📈 **Weekly & Monthly Insights:** Interactive charts showing your scanning history trends.
 
+## Demo 
+
+- [Dowload link](https://expo.dev/accounts/shruthikshetty1/projects/label-scan/builds/9fcea273-60c3-4a55-80e7-4f73ac076c03)
+
 ## Tech Stack
 
 - **Framework:** Expo (v56) & React Native
