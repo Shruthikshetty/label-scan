@@ -51,3 +51,11 @@ npx expo start
 ```
 
 Press **a** to run on Android emulator, **i** to run on iOS simulator, or scan the QR code with the Expo Go app.
+
+## screen shots 
+<img width="236" height="518" alt="image" src="https://github.com/user-attachments/assets/9e2673ce-1d4c-4c0a-9b36-51c41bab2d51" />
+<img width="232" height="508" alt="image" src="https://github.com/user-attachments/assets/b51957e5-f36c-486d-a3c3-40b69f488d28" />
+<img width="236" height="502" alt="image" src="https://github.com/user-attachments/assets/52950ff5-51d6-4cce-815d-f48fe9d6ef3b" />
+<img width="236" height="502" alt="image" src="https://github.com/user-attachments/assets/b957065d-f476-4ac7-9865-ea173f64ea73" />
+<img width="236" height="502" alt="image" src="https://github.com/user-attachments/assets/9ef2ba11-ba49-4a02-ae1d-961c0ffe29e0" />
+<img width="236" height="502" alt="image" src="https://github.com/user-attachments/assets/a6a13ff5-130c-4d61-b735-d35d7b5ac63b" />
